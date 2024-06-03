@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Clients</h1>
+        <a href="<?php echo site_url('client/create'); ?>" class="btn btn-primary">Add Client</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($clients as $client): ?>
+                    <tr>
+                        <td><?php echo $client['name']; ?></td>
+                        <td><?php echo $client['email']; ?></td>
+                        <td><?php echo $client['phone']; ?></td>
+                        <td><?php echo $client['company']; ?></td>
+                        <td>
+                            <a href="<?php echo site_url('client/edit/'.$client['id']); ?>" class="btn btn-warning">Edit</a>
+                            <a href="<?php echo site_url('client/delete/'.$client['id']); ?>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
